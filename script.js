@@ -28,7 +28,7 @@ sortBtn.addEventListener("click", function () {
     if (!this.classList.contains("bg-gray-700")) {
         sortedBook
             .sort((a, b) => a.volumeInfo.title > b.volumeInfo.title ? 1 : -1)
-            .sort((a, b) => new Date(b.volumeInfo.publishedDate) > new Date(a.volumeInfo.publishedDate) ? 1 : -1)
+            .sort((a, b) => new Date(b.volumeInfo?.publishedDate) > new Date(a.volumeInfo?.publishedDate) ? 1 : -1)
     }
     renderBooks(sortedBook);
     this.classList.toggle('bg-gray-700');
@@ -66,14 +66,14 @@ function bookCard(book) {
     const info = book.volumeInfo
     return (`
                 <a href="${info?.infoLink}" target="_blank" class="flex items-end w-full cursor-pointer transform hover:scale-105 transition">
-                    <img class="w-28 h-40 rounded-lg shadow-md"
+                    <img class="w-28 h-40 rounded-lg shadow-md" alt="book image" loading="lazy"
                         src="${info?.imageLinks?.thumbnail}" alt="">
                     <div class="bg-white/16 backdrop-blur-sm p-4 w-full flex flex-col justify-end h-34 rounded-tr-xl rounded-br-xl shadow-lg">
                         <p class="text-xl font-semibold line-clamp-2">${info?.title}</p>
                         <p class="text-gray-300 text-sm line-clamp-1">${info?.authors.join(", ")}</p>
                         <div class="text-gray-400 text-xs flex justify-between gap-4 mt-3">
                             <span>${info?.publisher}</span>
-                            <span>${info?.publishedDate}</span>
+                            <span>${info?.publishedDate || 'Unknown'}</span>
                         </div>
                     </div>
                 </a>
