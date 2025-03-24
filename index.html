@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="text-white relative">
+    <div class="relative min-h-screen flex flex-col backdrop-brightness-40">
+        <!-- Header -->
+        <header class="flex flex-col h-96 items-center justify-end text-center px-6 md:px-20 py-16">
+            <h1 class="text-3xl md:text-5xl font-bold">Unlock a World of Knowledge</h1>
+            <h5 class="text-md md:text-lg text-gray-300 mt-2">Library of 5,000+ books at your fingertips</h5>
+            <div class="flex border w-full md:w-1/3 rounded-md py-2 px-4 mt-6 gap-x-3 backdrop-blur-xs">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-search text-gray-300">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
+                <input type="search" id="searchInput" class="w-full focus:outline-none placeholder-gray-400"
+                    placeholder="Enter the book name here">
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="px-6 md:px-20 flex-grow pb-20">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-semibold">Trending Books ⚡️</h3>
+                <div class="hidden md:flex gap-3">
+                    <button id="list"
+                        class="px-4 py-2 rounded-md border hover:bg-gray-700 transition">List</button>
+                    <button id="grid"
+                        class="px-4 py-2 rounded-md border bg-gray-700 hover:bg-gray-700 transition">Grid</button>
+                    <button id="sort" class="px-4 py-2 rounded-md border hover:bg-gray-700 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-down-a-z">
+                            <path d="m3 16 4 4 4-4" />
+                            <path d="M7 20V4" />
+                            <path d="M20 8h-5" />
+                            <path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10" />
+                            <path d="M15 14h5l-5 6h5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="booksContainer" class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+                <!-- Book Card -->
+
+                <!-- Book Card End -->
+            </div>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
